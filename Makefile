@@ -79,15 +79,20 @@ $(shell mkdir -p $(BUILD_DIR)/src)
 clean:
 	$(RM) -r $(BUILD_DIR)
 	$(RM) ridgeracer64.map
+	$(RM) -r asm/
+	$(RM) -r assets/
+
 
 distclean: clean
 	$(RM) -r $(TOOLS_DIR)/gcc-kmc
 	$(RM) -r $(TOOLS_DIR)/armips/build
-	$(RM) -r $(TOOLS_DIR)/n64sym/bin
+	$(MAKE) -C $(TOOLS_DIR)/n64sym clean
+	$(MAKE) -C $(LIB_DIR)/ultralib distclean
+	$(MAKE) -C $(LIB_DIR)/f3dex2 clean
 
 
-### Extract files running splat
-extract:	$(N64SYM) $(BUILD_DIR)/lib/libgultra_rom.a $(F3DEX2)
+### Split files running splat
+split:	$(N64SYM) $(BUILD_DIR)/lib/libgultra_rom.a $(F3DEX2)
 	@echo "Preparing splat..."
 	$(RM) -r asm
 	@echo "Generating symbols from ROM with n64sym..."
@@ -95,19 +100,16 @@ extract:	$(N64SYM) $(BUILD_DIR)/lib/libgultra_rom.a $(F3DEX2)
 	@echo "Running splat..."
 	$(SPLAT) $(SPLAT_YAML)
 
-### Build targets
-rom: $(ROM)
-elf: $(ELF)
 
 ### All. Split baserom with splat and create new ROM
-all: extract $(ROM)
+all: split $(ROM)
 ifeq ($(COMPARE), 1)
 	md5sum $(ROM)
 	md5sum -c $(BASENAME).md5
 endif
 
 ### Phony targets
-.PHONY: all clean extract
+.PHONY: all clean split
 
 ## Libraries
 ### KMC
