@@ -1,0 +1,9 @@
+[submodule "lib/f3dex2"]
+	path = lib/f3dex2
+	url = https://github.com/Mr-Wiseguy/f3dex2.git
+[submodule "lib/ultralib"]
+	path = lib/ultralib
+	url = https://github.com/decompals/ultralib.git
+[submodule "tools/n64sym"]
+	path = tools/n64sym
+	url = https://github.com/shygoo/n64sym

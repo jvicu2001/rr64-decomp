@@ -1,0 +1,15 @@
+# ROM files
+*.z64
+
+# ASM, assets and build files
+asm/
+assets/
+build/
+bin/
+
+# Map files
+*.map
+*.d
+
+# Virtual environment
+.venv/

@@ -1,0 +1,82 @@
+name: Ridge Racer 64 (North America)
+sha1: 5f079cd9827b24d12af4961482a0fcc679e53042
+options:
+  basename: ridgeracer64
+  target_path: baserom.z64
+  elf_path: build/ridgeracer64.elf
+  base_path: .
+  platform: n64
+  compiler: KMC
+
+  asm_path: asm
+  src_path: src
+  build_path: build
+  # create_asm_dependencies: True
+
+  ld_script_path: ld_scripts/ridgeracer64.ld
+  ld_dependencies: True
+
+  find_file_boundaries: True
+  header_encoding: ASCII
+
+  o_as_suffix: False
+  use_legacy_include_asm: False
+  mips_abi_float_regs: o32
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
+  # section_order: [".text", ".data", ".rodata", ".bss"]
+  # auto_link_sections: [".data", ".rodata", ".bss"]
+
+  symbol_addrs_path:
+    - ld_scripts/symbol_addrs.txt
+  reloc_addrs_path:
+    - ld_scripts/reloc_addrs.txt
+
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+
+  extensions_path: tools/splat_ext
+
+  # string_encoding: ASCII
+  # data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+  # libultra_symbols: True
+  # hardware_regs: True
+  gfx_ucode: f3dex2 # https://shygoo.net/n64-uncompiled/all-ucode-signatures.txt
+  
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: boot
+    type: bin
+    start: 0x40
+
+  - name: entry
+    type: code
+    start: 0x1000
+    vram: 0x80000450
+    subsegments:
+      - [0x1000, hasm]
+
+  - name: main
+    type: code
+    start: 0x1050
+    vram: 0x800004A0
+    follows_vram: entry
+    bss_size: 0x8EF90
+    subsegments:
+      - [0x1050, asm]
+      - [0x11440, data]
+      - { type: bss, vram: 0x80034A70 }
+
+  - type: bin
+    start: 0x35620
+    follows_vram: main
+
+  - [0x2000000]
