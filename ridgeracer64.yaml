@@ -32,6 +32,7 @@ options:
 
   symbol_addrs_path:
     - ld_scripts/symbol_addrs.ld
+    - ld_scipts/n64sym_gen.ld
     - ld_scripts/undefined_syms.ld
     - ld_scripts/undefined_funcs.ld
   reloc_addrs_path:
