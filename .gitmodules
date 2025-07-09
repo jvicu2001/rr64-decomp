@@ -7,3 +7,6 @@
 [submodule "tools/n64sym"]
 	path = tools/n64sym
 	url = https://github.com/shygoo/n64sym
+[submodule "tools/armips"]
+	path = tools/armips
+	url = https://github.com/Kingcom/armips.git

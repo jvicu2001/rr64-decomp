@@ -13,3 +13,9 @@ bin/
 
 # Virtual environment
 .venv/
+
+# KMC files
+tools/gcc-kmc/
+
+# Armips build
+tools/armips/build/

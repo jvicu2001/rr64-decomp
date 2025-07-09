@@ -31,12 +31,14 @@ options:
   # auto_link_sections: [".data", ".rodata", ".bss"]
 
   symbol_addrs_path:
-    - ld_scripts/symbol_addrs.txt
+    - ld_scripts/symbol_addrs.ld
+    - ld_scripts/undefined_syms.ld
+    - ld_scripts/undefined_funcs.ld
   reloc_addrs_path:
-    - ld_scripts/reloc_addrs.txt
+    - ld_scripts/reloc_addrs.ld
 
-  # undefined_funcs_auto_path: undefined_funcs_auto.txt
-  # undefined_syms_auto_path: undefined_syms_auto.txt
+  undefined_funcs_auto_path: ld_scripts/undefined_funcs_auto.ld
+  undefined_syms_auto_path: ld_scripts/undefined_syms_auto.ld
 
   extensions_path: tools/splat_ext
 
@@ -47,7 +49,7 @@ options:
   # libultra_symbols: True
   # hardware_regs: True
   gfx_ucode: f3dex2 # https://shygoo.net/n64-uncompiled/all-ucode-signatures.txt
-  
+
 segments:
   - name: header
     type: header
