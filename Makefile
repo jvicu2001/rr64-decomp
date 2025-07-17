@@ -63,24 +63,19 @@ F3DEX2				:= $(LIB_DIR)/F3DEX2
 F3DEX2_VERSION		:= F3DEX2_2.08
 F3DEX2_FLAGS		:= ARMIPS=../../$(ARMIPS_BINARY)
 
-N64SYM				:=	$(TOOLS_DIR)/n64sym/bin/n64sym
-N64SYM_FLAGS		:= -l $(BUILD_DIR)/lib/libgultra_rom.a -f "splat" -o $(LD_DIR)/n64sym_gen.ld
-
-# Make build directories
-$(shell mkdir -p $(BUILD_DIR))
-$(shell mkdir -p $(BUILD_DIR)/asm)
-$(shell mkdir -p $(BUILD_DIR)/asm/data)
-$(shell mkdir -p $(BUILD_DIR)/assets)
-$(shell mkdir -p $(BUILD_DIR)/src)
+N64SYM				:= $(TOOLS_DIR)/n64sym/bin/n64sym
+N64SYM_LD			:= $(LD_DIR)/n64sym_gen.ld
+N64SYM_FLAGS		:= -l $(BUILD_DIR)/lib/libgultra_rom.a -f "splat" -o $(N64SYM_LD)
 
 # Recipes
 ## General
 ### Clean generated files
 clean:
-	$(RM) -r $(BUILD_DIR)
+	$(RM) -r $(BUILD_DIR)/
 	$(RM) ridgeracer64.map
 	$(RM) -r asm/
 	$(RM) -r assets/
+	$(RM) $(N64SYM_LD)
 
 
 distclean: clean
@@ -92,24 +87,32 @@ distclean: clean
 
 
 ### Split files running splat
-split:	$(N64SYM) $(BUILD_DIR)/lib/libgultra_rom.a $(F3DEX2)
-	@echo "Preparing splat..."
-	$(RM) -r asm
-	@echo "Generating symbols from ROM with n64sym..."
-	$(N64SYM) baserom.z64 $(N64SYM_FLAGS)
+split:	$(N64SYM_LD) $(BUILD_DIR)/lib/libgultra_rom.a $(F3DEX2)
+	@echo "Removing old asm files..."
+	$(RM) -r asm/
 	@echo "Running splat..."
 	$(SPLAT) $(SPLAT_YAML)
 
 
 ### All. Split baserom with splat and create new ROM
-all: split $(ROM)
+all: split
+	$(MAKE) $(ROM)
 ifeq ($(COMPARE), 1)
 	md5sum $(ROM)
 	md5sum -c $(BASENAME).md5
 endif
 
+### Ensure all build directories exist
+build_dirs:
+	@mkdir -p $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)/asm
+	@mkdir -p $(BUILD_DIR)/asm/data
+	@mkdir -p $(BUILD_DIR)/assets
+	@mkdir -p $(BUILD_DIR)/src
+	@mkdir -p $(BUILD_DIR)/lib
+
 ### Phony targets
-.PHONY: all clean split
+.PHONY: all clean split build_dirs
 
 ## Libraries
 ### KMC
@@ -129,8 +132,7 @@ $(LIBULTRA):
 	@echo "ultralib built."
 
 ### libgultra_rom
-$(BUILD_DIR)/lib/libgultra_rom.a: $(LIBULTRA)
-	@mkdir -p $$(dirname $@)
+$(BUILD_DIR)/lib/libgultra_rom.a: $(LIBULTRA) | build_dirs
 	@cp $< $@
 
 ### F3DEX2
@@ -162,17 +164,22 @@ $(ROM): $(ELF)
 	@echo "ROM created: $@"
 
 ### ELF
-$(ELF): $(BUILD_DIR)/lib/libgultra_rom.a $(O_FILES)
+$(ELF): $(O_FILES) $(BUILD_DIR)/lib/libgultra_rom.a | build_dirs
 	@echo "Linking ELF..."
 	$(LD) $(foreach file,$(LD_FILES),-T $(file)) $(LD_FLAGS) -o $@
 	@echo "ELF linked: $@"
 
 ### Object files
-$(BUILD_DIR)/%.bin.o: %.bin
+$(BUILD_DIR)/%.bin.o: %.bin | build_dirs
 	$(OBJCOPY) -I binary -O elf32-tradbigmips $< $@
 
-$(BUILD_DIR)/%.s.o: %.s
+$(BUILD_DIR)/%.s.o: %.s | build_dirs
 	$(CPP) $(IINC) $< | $(AS) $(AS_FLAGS) -o $@
 
-$(BUILD_DIR)/%.c.o: %.c
+$(BUILD_DIR)/%.c.o: %.c | build_dirs
 	$(CC) -c $(CFLAGS) $(MIPS_VERSION) $(OPT_FLAGS) -o $@ $<
+
+### N64SYM LD script
+$(N64SYM_LD): $(N64SYM)
+	@echo "Generating symbols from ROM with n64sym..."
+	$(N64SYM) baserom.z64 $(N64SYM_FLAGS)
