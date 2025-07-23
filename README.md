@@ -1,5 +1,6 @@
 # Ridge Racer 64 Decompilation project
-An attempt on Decompiling RR64
+An attempt on Decompiling RR64.
+Check the [wiki](https://github.com/jvicu2001/rr64-decomp/wiki) for documentation of findings during the project.
 
 ## Requirements
 - Programs
