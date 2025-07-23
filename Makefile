@@ -56,7 +56,7 @@ LIBULTRA_TARGET		:= libgultra_rom
 LIBULTRA			:= $(LIB_DIR)/ultralib/build/$(LIBULTRA_VERSION)/$(LIBULTRA_TARGET)/$(LIBULTRA_TARGET).a
 LIBULTRA_FLAGS		:= VERSION=$(LIBULTRA_VERSION) TARGET=$(LIBULTRA_TARGET) COMPARE=0 MODERN_LD=1
 
-ARMIPS_BINARY	:= $(TOOLS_DIR)/armips/build/armips
+ARMIPS_BINARY	:= $(TOOLS_DIR)/armips-bin/build/armips
 
 F3DEX2				:= $(LIB_DIR)/F3DEX2
 # Version from https://shygoo.net/n64-uncompiled/all-ucode-signatures.txt
@@ -80,7 +80,7 @@ clean:
 
 distclean: clean
 	$(RM) -r $(TOOLS_DIR)/gcc-kmc
-	$(RM) -r $(TOOLS_DIR)/armips/build
+	$(RM) -r $(TOOLS_DIR)/armips-bin/build
 	$(MAKE) -C $(TOOLS_DIR)/n64sym clean
 	$(MAKE) -C $(LIB_DIR)/ultralib distclean
 	$(MAKE) -C $(LIB_DIR)/f3dex2 clean
@@ -151,9 +151,9 @@ $(N64SYM):
 ### armips
 $(ARMIPS_BINARY):
 	@echo "Building armips..."
-	@mkdir $(TOOLS_DIR)/armips/build
-	@cmake -S $(TOOLS_DIR)/armips -B $(TOOLS_DIR)/armips/build -DCMAKE_BUILD_TYPE=Release
-	@cmake --build $(TOOLS_DIR)/armips/build --config Release
+	@mkdir -p $(TOOLS_DIR)/armips-bin/build
+	@cmake -S $(TOOLS_DIR)/armips -B $(TOOLS_DIR)/armips-bin/build -DCMAKE_BUILD_TYPE=Release
+	@cmake --build $(TOOLS_DIR)/armips-bin/build --config Release
 	@echo "armips built."
 
 ## Build
