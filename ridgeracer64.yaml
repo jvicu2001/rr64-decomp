@@ -683,7 +683,7 @@ segments:
     type: bin
     start: 0xAAB6A0
     vram: 0x8013E4B0
-    exclusive_ram_id: ram_id_8
+    exclusive_ram_id: bg_graphics
     subsegments: 
       - [0xAAB6A0, bin]
 
