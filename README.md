@@ -12,6 +12,9 @@ An attempt on Decompiling RR64
 - Files
     - A copy of the USA release of Ridge Racer 64 ``(md5: 990f97d56456fc23e52bd263e709e21e)``
 
+- Cloning options
+    - Remember to use the flag ``--recurse-submodules`` when cloning. Otherwise, run ``git submodule update --init --recursive`` after cloning
+
 ## Building
 Place your copy of the original rom in the root folder of this repository and name it ``baserom.z64``
 
