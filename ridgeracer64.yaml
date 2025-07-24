@@ -85,6 +85,7 @@ segments:
     start: 0x1050
     vram: 0x800004A0
     follows_vram: entry
+    symbol_name_format: "$VRAM_main"
     # bss_size: 0x8EF90
     subsegments:
       - [0x1050, asm]
@@ -255,6 +256,7 @@ segments:
     # follows_vram: main
     vram: 0x800C3A00
     exclusive_ram_id: main_code
+    symbol_name_format: "$VRAM_gamecode"
     subsegments:
       - [0x35620, bin] # Sector header, with sectornum, start and end, name
       - [0x35660, asm]
@@ -265,6 +267,7 @@ segments:
     start: 0x0008DB10
     vram: 0x800C3A00
     exclusive_ram_id: main_code
+    symbol_name_format: "$VRAM_cardata"
     subsegments:
       - [0x8BD10, bin] # header
       - [0x8BD50, bin] # rodata maybe? also search for the rest of the cars
@@ -274,6 +277,7 @@ segments:
     start: 0x00218050
     vram: 0x800C3A00
     exclusive_ram_id: main_code
+    symbol_name_format: "$VRAM_galaga"
     subsegments:
       - [0x218050, bin] # sector (overlay?) header
       - [0x218090, asm]
@@ -285,6 +289,7 @@ segments:
     start: 0x00225CC0
     vram: 0x800C3A00
     exclusive_ram_id: main_code
+    symbol_name_format: "$VRAM_legalscreen"
     subsegments:
       - [0x225CC0, bin]
       - [0x225D00, asm]
@@ -295,6 +300,7 @@ segments:
     start: 0x002A26E0
     vram: 0x800C3A00
     exclusive_ram_id: main_code
+    symbol_name_format: "$VRAM_nstlogo"
     subsegments:
       - [0x2A26E0, bin]
       - [0x2A2720, asm]
@@ -305,6 +311,7 @@ segments:
     start: 0x002B36C0
     vram: 0x800C3A00
     exclusive_ram_id: main_code
+    symbol_name_format: "$VRAM_menu"
     subsegments:
       - [0x2B36C0, bin]
       - [0x2B3700, asm]
@@ -315,6 +322,7 @@ segments:
     start: 0x0032BA90
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_paneledit"
     subsegments:
       - [0x32BA90, bin]
       - [0x32BAD0, asm]
@@ -325,6 +333,7 @@ segments:
     start: 0x357140
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_novice"
     subsegments:
       - [0x357140, bin]
       - [0x357180, asm]
@@ -335,6 +344,7 @@ segments:
     start: 0x3BA6C0
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_inter"
     subsegments: 
       - [0x3BA6C0, bin]
 
@@ -343,6 +353,7 @@ segments:
     start: 0x440340
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_expert"
     subsegments: 
       - [0x440340, bin]
 
@@ -351,6 +362,7 @@ segments:
     start: 0x4D1E10
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_r2speed"
     subsegments: 
       - [0x4D1E10, bin]
 
@@ -359,6 +371,7 @@ segments:
     start: 0x533040
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_oldnovice"
     subsegments: 
       - [0x533040, bin]
 
@@ -367,6 +380,7 @@ segments:
     start: 0x5B62C0
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_oldexpert"
     subsegments: 
       - [0x5B62C0, bin]
 
@@ -375,6 +389,7 @@ segments:
     start: 0x643680
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_r4expert"
     subsegments: 
       - [0x643680, bin]
 
@@ -383,6 +398,7 @@ segments:
     start: 0x6C6A40
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_r4inter"
     subsegments: 
       - [0x6C6A40, bin]
 
@@ -391,6 +407,7 @@ segments:
     start: 0x72FA40
     vram: 0x80126EB0
     exclusive_ram_id: course_code
+    symbol_name_format: "$VRAM_r4novice"
     subsegments: 
       - [0x72FA40, bin]
 
@@ -398,6 +415,7 @@ segments:
     type: bin
     start: 0x78ACC0
     vram: 0x8026C910
+    symbol_name_format: "$VRAM_globaluidata"
     subsegments: 
       - [0x78ACC0, bin]
 
@@ -405,6 +423,7 @@ segments:
     type: bin
     start: 0x78DAE0
     vram: 0x80227198
+    symbol_name_format: "$VRAM_intro"
     subsegments: 
       - [0x78DAE0, bin]
 
@@ -413,6 +432,7 @@ segments:
     start: 0x79B290
     vram: 0x8026F730
     exclusive_ram_id: game_ui
+    symbol_name_format: "$VRAM_gameuidata"
     subsegments: 
       - [0x79B290, bin]
 
@@ -421,6 +441,7 @@ segments:
     start: 0x7AA400
     vram: 0x8026F730
     exclusive_ram_id: game_ui
+    symbol_name_format: "$VRAM_replayuidata"
     subsegments: 
       - [0x7AA400, bin]
 
@@ -429,6 +450,7 @@ segments:
     start: 0x7B71B0
     vram: 0x8026F730
     exclusive_ram_id: game_ui
+    symbol_name_format: "$VRAM_cdplaydata"
     subsegments: 
       - [0x7B71B0, bin]
 
@@ -437,6 +459,7 @@ segments:
     start: 0x7C5400
     vram: 0x8027E8A0
     exclusive_ram_id: battle_ui
+    symbol_name_format: "$VRAM_battleuidata"
     subsegments: 
       - [0x7C5400, bin]
 
@@ -445,6 +468,7 @@ segments:
     start: 0x7C63D0
     vram: 0x8027E8A0
     exclusive_ram_id: battle_ui
+    symbol_name_format: "$VRAM_raceuidata"
     subsegments: 
       - [0x7C63D0, bin]
 
@@ -453,6 +477,7 @@ segments:
     start: 0x7D0170
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds1"
     subsegments: 
       - [0x7D0170, bin]
 
@@ -461,6 +486,7 @@ segments:
     start: 0x7E06B0
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds2"
     subsegments: 
       - [0x7E06B0, bin]
 
@@ -469,6 +495,7 @@ segments:
     start: 0x7E1EC0
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds3"
     subsegments: 
       - [0x7E1EC0, bin]
 
@@ -477,6 +504,7 @@ segments:
     start: 0x802410
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds4"
     subsegments: 
       - [0x802410, bin]
 
@@ -485,6 +513,7 @@ segments:
     start: 0x812950
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds5"
     subsegments: 
       - [0x812950, bin]
 
@@ -493,6 +522,7 @@ segments:
     start: 0x832EE0
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds6"
     subsegments: 
       - [0x832EE0, bin]
 
@@ -501,6 +531,7 @@ segments:
     start: 0x853470
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds7"
     subsegments: 
       - [0x853470, bin]
 
@@ -509,6 +540,7 @@ segments:
     start: 0x873A00
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds8"
     subsegments: 
       - [0x873A00, bin]
 
@@ -517,6 +549,7 @@ segments:
     start: 0x893F90
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds9"
     subsegments: 
       - [0x893F90, bin]
 
@@ -525,6 +558,7 @@ segments:
     start: 0x8B4520
     vram: 0x80288640
     exclusive_ram_id: clouds
+    symbol_name_format: "$VRAM_clouds10"
     subsegments: 
       - [0x8B4520, bin]
 
@@ -533,6 +567,7 @@ segments:
     start: 0x8B4560
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData0"
     subsegments: 
       - [0x8B4560, bin]
 
@@ -541,6 +576,7 @@ segments:
     start: 0x8C7600
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData1"
     subsegments: 
       - [0x8C7600, bin]
 
@@ -549,6 +585,7 @@ segments:
     start: 0x8D95E0
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData2"
     subsegments: 
       - [0x8D95E0, bin]
 
@@ -557,6 +594,7 @@ segments:
     start: 0x8E4320
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData3"
     subsegments: 
       - [0x8E4620, bin]
 
@@ -565,6 +603,7 @@ segments:
     start: 0x902840
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData4"
     subsegments: 
       - [0x902840, bin]
 
@@ -573,6 +612,7 @@ segments:
     start: 0x90E380
     vram: 0x80244DA0
     exclusive_ram_id: pictdata_b
+    symbol_name_format: "$VRAM_pictData5"
     subsegments: 
       - [0x90E380, bin]
 
@@ -581,6 +621,7 @@ segments:
     start: 0x919EC0
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData6"
     subsegments: 
       - [0x919EC0, bin]
 
@@ -589,6 +630,7 @@ segments:
     start: 0x925A00
     vram: 0x80244DA0
     exclusive_ram_id: pictdata_b
+    symbol_name_format: "$VRAM_pictData7"
     subsegments: 
       - [0x925A00, bin]
 
@@ -597,6 +639,7 @@ segments:
     start: 0x931540
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictData8"
     subsegments: 
       - [0x931540, bin]
 
@@ -605,6 +648,7 @@ segments:
     start: 0x9467F0
     vram: 0x80239260
     exclusive_ram_id: pictdata_a
+    symbol_name_format: "$VRAM_pictN64"
     subsegments: 
       - [0x9467F0, bin]
 
@@ -613,6 +657,7 @@ segments:
     start: 0x9470F0
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_throphydata"
     subsegments: 
       - [0x9470F0, bin]
 
@@ -621,6 +666,7 @@ segments:
     start: 0x974FC0
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_littletracks"
     subsegments: 
       - [0x974FC0, bin]
 
@@ -629,6 +675,7 @@ segments:
     start: 0x9C8080
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_mainmenubg"
     subsegments: 
       - [0x9C8080, bin]
 
@@ -637,6 +684,7 @@ segments:
     start: 0xA22920
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_garagemainbg"
     subsegments: 
       - [0xA22920, bin]
 
@@ -645,6 +693,7 @@ segments:
     start: 0xA48160
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_optionsscreenbg"
     subsegments: 
       - [0xA48160, bin]
 
@@ -653,6 +702,7 @@ segments:
     start: 0xA54FC0
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_brightnessadjustbg"
     subsegments: 
       - [0xA54FC0, bin]
 
@@ -660,6 +710,7 @@ segments:
     type: bin
     start: 0xA5E9E0
     vram: 0x80140450
+    symbol_name_format: "$VRAM_loadandsavebg"
     subsegments: 
       - [0xA5E9E0, bin]
 
@@ -668,6 +719,7 @@ segments:
     start: 0xA60620
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_multiplayerbg"
     subsegments: 
       - [0xA60620, bin]
 
@@ -676,6 +728,7 @@ segments:
     start: 0xA85E60
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_vsresultbg"
     subsegments: 
       - [0xA85E60, bin]
 
@@ -684,6 +737,7 @@ segments:
     start: 0xAAB6A0
     vram: 0x8013E4B0
     exclusive_ram_id: bg_graphics
+    symbol_name_format: "$VRAM_controllerconfigbg"
     subsegments: 
       - [0xAAB6A0, bin]
 
@@ -691,6 +745,7 @@ segments:
     type: bin
     start: 0x19846F0
     vram: 0x00  # ??
+    symbol_name_format: "$VRAM_textureDB"
     subsegments: 
       - [0x19846F0, bin]
 
