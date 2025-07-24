@@ -4,7 +4,7 @@ Check the [wiki](https://github.com/jvicu2001/rr64-decomp/wiki) for documentatio
 
 ## Requirements
 - Programs
-    - Python 3 (Tested on 3.13)
+    - Python 3 (Tested on 3.13, should need 3.9 minimum)
     - mips-linux-gnu-binutils 2.44
     - CMake, for building armips
     - gcc
