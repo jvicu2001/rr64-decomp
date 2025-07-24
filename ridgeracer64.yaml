@@ -229,26 +229,9 @@ segments:
       # - [0x10AC0, asm] # lib/ultralib/src/io/pfsselectbank
       # - [0x10B30, asm] # lib/ultralib/src/io/contramread
       # - [0x10D20, asm] # lib/ultralib/src/io/contramwrite
-      - [0x2B70, asm]
 
       - [0x10F30, asm]
-      - [0x11210, data]
-
-  # - name: segment_01
-  #   type: code
-  #   start: 0x1302C
-  #   follows_vram: main
-  #   vram: 0x8001247C    (bad alignment?)
-  #   subsegments:
-      - [0x1302C, asm]
-      - [0x13080, data]
-      - [0x134C8, asm]
-      - [0x13890, asm]
-      - [0x13C40, asm]
-      - [0x14170, asm]
-      - [0x1B390, asm]
-      - [0x22590, data]
-      # - { type: bss, vram: 0x80034A70 }
+      - [0x1ED00, data]
 
   - name: gamecode
     type: code
@@ -279,10 +262,9 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_galaga"
     subsegments:
-      - [0x218050, bin] # sector (overlay?) header
+      - [0x218050, bin] # overlay header
       - [0x218090, asm]
-      - [0x21B920, data]
-      - [0x225C50, asm] # 
+      - [0x21B870, data]
 
   - name: legalscreen
     type: code
@@ -315,7 +297,7 @@ segments:
     subsegments:
       - [0x2B36C0, bin]
       - [0x2B3700, asm]
-      - [0x2EC840, data]
+      - [0x2EC830, data]
 
   - name: paneledit
     type: code
