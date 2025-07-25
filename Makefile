@@ -60,6 +60,7 @@ ARMIPS_BINARY	:= $(TOOLS_DIR)/armips-bin/build/armips
 
 F3DEX2				:= $(LIB_DIR)/F3DEX2
 # Version from https://shygoo.net/n64-uncompiled/all-ucode-signatures.txt
+# Signature at 0x241B8
 F3DEX2_VERSION		:= F3DEX2_2.08
 F3DEX2_FLAGS		:= ARMIPS=../../$(ARMIPS_BINARY)
 
