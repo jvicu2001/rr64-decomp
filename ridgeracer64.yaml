@@ -241,7 +241,7 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_gamecode"
     subsegments:
-      - [0x35620, bin] # Sector header, with sectornum, start and end, name
+      - [0x35620, asm] # Sector header, with sectornum, start and end, name
       - [0x35660, asm]
       - [0x80260, data]
     
@@ -262,7 +262,7 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_galaga"
     subsegments:
-      - [0x218050, bin] # overlay header
+      - [0x218050, asm] # overlay header
       - [0x218090, asm]
       - [0x21B870, data]
 
@@ -273,7 +273,7 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_legalscreen"
     subsegments:
-      - [0x225CC0, bin]
+      - [0x225CC0, asm]
       - [0x225D00, asm]
       - [0x228A60, data]
 
@@ -284,7 +284,7 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_nstlogo"
     subsegments:
-      - [0x2A26E0, bin]
+      - [0x2A26E0, asm]
       - [0x2A2720, asm]
       - [0x2A4950, data]
 
@@ -295,7 +295,7 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_menu"
     subsegments:
-      - [0x2B36C0, bin]
+      - [0x2B36C0, asm]
       - [0x2B3700, asm]
       - [0x2EC830, data]
 
@@ -306,7 +306,7 @@ segments:
     exclusive_ram_id: course_code
     symbol_name_format: "$VRAM_paneledit"
     subsegments:
-      - [0x32BA90, bin]
+      - [0x32BA90, asm]
       - [0x32BAD0, asm]
       - [0x32D350, data]
   
@@ -317,7 +317,7 @@ segments:
     exclusive_ram_id: course_code
     symbol_name_format: "$VRAM_novice"
     subsegments:
-      - [0x357140, bin]
+      - [0x357140, asm]
       - [0x357180, asm]
       - [0x357240, data]
 
@@ -404,7 +404,7 @@ segments:
   - name: intro
     type: bin
     start: 0x78DAE0
-    vram: 0x80227198
+    vram: 0x80227190
     symbol_name_format: "$VRAM_intro"
     subsegments: 
       - [0x78DAE0, bin]

@@ -114,18 +114,20 @@ SECTIONS
     {
         FILL(0x00000000);
         gamecode_TEXT_START = .;
+        build/asm/35620.s.o(.text);
         build/asm/35660.s.o(.text);
         . = ALIGN(., 16);
         gamecode_TEXT_END = .;
         gamecode_TEXT_SIZE = ABSOLUTE(gamecode_TEXT_END - gamecode_TEXT_START);
         gamecode_DATA_START = .;
-        build/assets/35620.bin.o(.data);
+        build/asm/35620.s.o(.data);
         build/asm/35660.s.o(.data);
         build/asm/data/80260.data.s.o(.data);
         . = ALIGN(., 16);
         gamecode_DATA_END = .;
         gamecode_DATA_SIZE = ABSOLUTE(gamecode_DATA_END - gamecode_DATA_START);
         gamecode_RODATA_START = .;
+        build/asm/35620.s.o(.rodata);
         build/asm/35660.s.o(.rodata);
         . = ALIGN(., 16);
         gamecode_RODATA_END = .;
@@ -136,6 +138,7 @@ SECTIONS
     {
         FILL(0x00000000);
         gamecode_BSS_START = .;
+        build/asm/35620.s.o(.bss);
         build/asm/35660.s.o(.bss);
         . = ALIGN(., 16);
         gamecode_BSS_END = .;
@@ -167,18 +170,20 @@ SECTIONS
     {
         FILL(0x00000000);
         galaga_TEXT_START = .;
+        build/asm/218050.s.o(.text);
         build/asm/218090.s.o(.text);
         . = ALIGN(., 16);
         galaga_TEXT_END = .;
         galaga_TEXT_SIZE = ABSOLUTE(galaga_TEXT_END - galaga_TEXT_START);
         galaga_DATA_START = .;
-        build/assets/218050.bin.o(.data);
+        build/asm/218050.s.o(.data);
         build/asm/218090.s.o(.data);
         build/asm/data/21B870.data.s.o(.data);
         . = ALIGN(., 16);
         galaga_DATA_END = .;
         galaga_DATA_SIZE = ABSOLUTE(galaga_DATA_END - galaga_DATA_START);
         galaga_RODATA_START = .;
+        build/asm/218050.s.o(.rodata);
         build/asm/218090.s.o(.rodata);
         . = ALIGN(., 16);
         galaga_RODATA_END = .;
@@ -189,6 +194,7 @@ SECTIONS
     {
         FILL(0x00000000);
         galaga_BSS_START = .;
+        build/asm/218050.s.o(.bss);
         build/asm/218090.s.o(.bss);
         . = ALIGN(., 16);
         galaga_BSS_END = .;
@@ -206,18 +212,20 @@ SECTIONS
     {
         FILL(0x00000000);
         legalscreen_TEXT_START = .;
+        build/asm/225CC0.s.o(.text);
         build/asm/225D00.s.o(.text);
         . = ALIGN(., 16);
         legalscreen_TEXT_END = .;
         legalscreen_TEXT_SIZE = ABSOLUTE(legalscreen_TEXT_END - legalscreen_TEXT_START);
         legalscreen_DATA_START = .;
-        build/assets/225CC0.bin.o(.data);
+        build/asm/225CC0.s.o(.data);
         build/asm/225D00.s.o(.data);
         build/asm/data/228A60.data.s.o(.data);
         . = ALIGN(., 16);
         legalscreen_DATA_END = .;
         legalscreen_DATA_SIZE = ABSOLUTE(legalscreen_DATA_END - legalscreen_DATA_START);
         legalscreen_RODATA_START = .;
+        build/asm/225CC0.s.o(.rodata);
         build/asm/225D00.s.o(.rodata);
         . = ALIGN(., 16);
         legalscreen_RODATA_END = .;
@@ -228,6 +236,7 @@ SECTIONS
     {
         FILL(0x00000000);
         legalscreen_BSS_START = .;
+        build/asm/225CC0.s.o(.bss);
         build/asm/225D00.s.o(.bss);
         . = ALIGN(., 16);
         legalscreen_BSS_END = .;
@@ -245,18 +254,20 @@ SECTIONS
     {
         FILL(0x00000000);
         nstlogo_TEXT_START = .;
+        build/asm/2A26E0.s.o(.text);
         build/asm/2A2720.s.o(.text);
         . = ALIGN(., 16);
         nstlogo_TEXT_END = .;
         nstlogo_TEXT_SIZE = ABSOLUTE(nstlogo_TEXT_END - nstlogo_TEXT_START);
         nstlogo_DATA_START = .;
-        build/assets/2A26E0.bin.o(.data);
+        build/asm/2A26E0.s.o(.data);
         build/asm/2A2720.s.o(.data);
         build/asm/data/2A4950.data.s.o(.data);
         . = ALIGN(., 16);
         nstlogo_DATA_END = .;
         nstlogo_DATA_SIZE = ABSOLUTE(nstlogo_DATA_END - nstlogo_DATA_START);
         nstlogo_RODATA_START = .;
+        build/asm/2A26E0.s.o(.rodata);
         build/asm/2A2720.s.o(.rodata);
         . = ALIGN(., 16);
         nstlogo_RODATA_END = .;
@@ -267,6 +278,7 @@ SECTIONS
     {
         FILL(0x00000000);
         nstlogo_BSS_START = .;
+        build/asm/2A26E0.s.o(.bss);
         build/asm/2A2720.s.o(.bss);
         . = ALIGN(., 16);
         nstlogo_BSS_END = .;
@@ -284,18 +296,20 @@ SECTIONS
     {
         FILL(0x00000000);
         menu_TEXT_START = .;
+        build/asm/2B36C0.s.o(.text);
         build/asm/2B3700.s.o(.text);
         . = ALIGN(., 16);
         menu_TEXT_END = .;
         menu_TEXT_SIZE = ABSOLUTE(menu_TEXT_END - menu_TEXT_START);
         menu_DATA_START = .;
-        build/assets/2B36C0.bin.o(.data);
+        build/asm/2B36C0.s.o(.data);
         build/asm/2B3700.s.o(.data);
         build/asm/data/2EC830.data.s.o(.data);
         . = ALIGN(., 16);
         menu_DATA_END = .;
         menu_DATA_SIZE = ABSOLUTE(menu_DATA_END - menu_DATA_START);
         menu_RODATA_START = .;
+        build/asm/2B36C0.s.o(.rodata);
         build/asm/2B3700.s.o(.rodata);
         . = ALIGN(., 16);
         menu_RODATA_END = .;
@@ -306,6 +320,7 @@ SECTIONS
     {
         FILL(0x00000000);
         menu_BSS_START = .;
+        build/asm/2B36C0.s.o(.bss);
         build/asm/2B3700.s.o(.bss);
         . = ALIGN(., 16);
         menu_BSS_END = .;
@@ -323,18 +338,20 @@ SECTIONS
     {
         FILL(0x00000000);
         paneledit_TEXT_START = .;
+        build/asm/32BA90.s.o(.text);
         build/asm/32BAD0.s.o(.text);
         . = ALIGN(., 16);
         paneledit_TEXT_END = .;
         paneledit_TEXT_SIZE = ABSOLUTE(paneledit_TEXT_END - paneledit_TEXT_START);
         paneledit_DATA_START = .;
-        build/assets/32BA90.bin.o(.data);
+        build/asm/32BA90.s.o(.data);
         build/asm/32BAD0.s.o(.data);
         build/asm/data/32D350.data.s.o(.data);
         . = ALIGN(., 16);
         paneledit_DATA_END = .;
         paneledit_DATA_SIZE = ABSOLUTE(paneledit_DATA_END - paneledit_DATA_START);
         paneledit_RODATA_START = .;
+        build/asm/32BA90.s.o(.rodata);
         build/asm/32BAD0.s.o(.rodata);
         . = ALIGN(., 16);
         paneledit_RODATA_END = .;
@@ -345,6 +362,7 @@ SECTIONS
     {
         FILL(0x00000000);
         paneledit_BSS_START = .;
+        build/asm/32BA90.s.o(.bss);
         build/asm/32BAD0.s.o(.bss);
         . = ALIGN(., 16);
         paneledit_BSS_END = .;
@@ -362,18 +380,20 @@ SECTIONS
     {
         FILL(0x00000000);
         novice_TEXT_START = .;
+        build/asm/357140.s.o(.text);
         build/asm/357180.s.o(.text);
         . = ALIGN(., 16);
         novice_TEXT_END = .;
         novice_TEXT_SIZE = ABSOLUTE(novice_TEXT_END - novice_TEXT_START);
         novice_DATA_START = .;
-        build/assets/357140.bin.o(.data);
+        build/asm/357140.s.o(.data);
         build/asm/357180.s.o(.data);
         build/asm/data/357240.data.s.o(.data);
         . = ALIGN(., 16);
         novice_DATA_END = .;
         novice_DATA_SIZE = ABSOLUTE(novice_DATA_END - novice_DATA_START);
         novice_RODATA_START = .;
+        build/asm/357140.s.o(.rodata);
         build/asm/357180.s.o(.rodata);
         . = ALIGN(., 16);
         novice_RODATA_END = .;
@@ -384,6 +404,7 @@ SECTIONS
     {
         FILL(0x00000000);
         novice_BSS_START = .;
+        build/asm/357140.s.o(.bss);
         build/asm/357180.s.o(.bss);
         . = ALIGN(., 16);
         novice_BSS_END = .;
@@ -547,7 +568,7 @@ SECTIONS
 
     intro_ROM_START = __romPos;
     intro_VRAM = ADDR(.intro);
-    .intro 0x80227198 : AT(intro_ROM_START) SUBALIGN(16)
+    .intro 0x80227190 : AT(intro_ROM_START) SUBALIGN(16)
     {
         FILL(0x00000000);
         intro_DATA_START = .;
