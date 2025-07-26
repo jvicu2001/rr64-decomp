@@ -16,6 +16,8 @@ options:
   ld_script_path: ld_scripts/ridgeracer64.ld
   ld_dependencies: True
 
+  ld_legacy_generation: False
+
   find_file_boundaries: True
   header_encoding: ASCII
 
@@ -241,7 +243,8 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_gamecode"
     subsegments:
-      - [0x35620, asm] # Sector header, with sectornum, start and end, name
+      - { start: 0x35620, type: rodata, name: "gamecode_header", linker_section_order: asm }
+    #  - [0x35620, rodata] # Sector header, with sectornum, start and end, name
       - [0x35660, asm]
       - [0x80260, data]
     
@@ -252,7 +255,8 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_cardata"
     subsegments:
-      - [0x8BD10, bin] # header
+      - { start: 0x8BD10, type: rodata, name: "cardata_header", linker_section_order: asm }
+    #  - [0x8BD10, rodata] # header
       - [0x8BD50, bin] # rodata maybe? also search for the rest of the cars
     
   - name: galaga
@@ -262,7 +266,8 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_galaga"
     subsegments:
-      - [0x218050, asm] # overlay header
+      - { start: 0x218050, type: rodata, name: "galaga_header", linker_section_order: asm }
+    #  - [0x218050, rodata] # overlay header
       - [0x218090, asm]
       - [0x21B870, data]
 
@@ -273,7 +278,8 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_legalscreen"
     subsegments:
-      - [0x225CC0, asm]
+      - { start: 0x225CC0, type: rodata, name: "legalscreen_header", linker_section_order: asm }
+    #  - [0x225CC0, rodata]
       - [0x225D00, asm]
       - [0x228A60, data]
 
@@ -284,7 +290,8 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_nstlogo"
     subsegments:
-      - [0x2A26E0, asm]
+      - { start: 0x2A26E0, type: rodata, name: "nstlogo_header", linker_section_order: asm }
+    #  - [0x2A26E0, rodata]
       - [0x2A2720, asm]
       - [0x2A4950, data]
 
@@ -295,7 +302,8 @@ segments:
     exclusive_ram_id: main_code
     symbol_name_format: "$VRAM_menu"
     subsegments:
-      - [0x2B36C0, asm]
+      - { start: 0x2B36C0, type: rodata, name: "menu_header", linker_section_order: asm }
+    #  - [0x2B36C0, rodata]
       - [0x2B3700, asm]
       - [0x2EC830, data]
 
@@ -306,7 +314,8 @@ segments:
     exclusive_ram_id: course_code
     symbol_name_format: "$VRAM_paneledit"
     subsegments:
-      - [0x32BA90, asm]
+      - { start: 0x32BA90, type: rodata, name: "paneledit_header", linker_section_order: asm }
+    #  - [0x32BA90, rodata]
       - [0x32BAD0, asm]
       - [0x32D350, data]
   
@@ -317,7 +326,8 @@ segments:
     exclusive_ram_id: course_code
     symbol_name_format: "$VRAM_novice"
     subsegments:
-      - [0x357140, asm]
+      - { start: 0x357140, type: rodata, name: "novice_header", linker_section_order: asm }
+    #  - [0x357140, rodata]
       - [0x357180, asm]
       - [0x357240, data]
 
