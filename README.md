@@ -1,9 +1,10 @@
 # Ridge Racer 64 Decompilation project
-An attempt on Decompiling RR64
+An attempt on Decompiling RR64.
+Check the [wiki](https://github.com/jvicu2001/rr64-decomp/wiki) for documentation of findings during the project.
 
 ## Requirements
 - Programs
-    - Python 3 (Tested on 3.13)
+    - Python 3 (Tested on 3.13, should need 3.9 minimum)
     - mips-linux-gnu-binutils 2.44
     - CMake, for building armips
     - gcc
@@ -11,6 +12,9 @@ An attempt on Decompiling RR64
     - make
 - Files
     - A copy of the USA release of Ridge Racer 64 ``(md5: 990f97d56456fc23e52bd263e709e21e)``
+
+- Cloning options
+    - Remember to use the flag ``--recurse-submodules`` when cloning. Otherwise, run ``git submodule update --init --recursive`` after cloning
 
 ## Building
 Place your copy of the original rom in the root folder of this repository and name it ``baserom.z64``

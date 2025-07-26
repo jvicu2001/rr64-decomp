@@ -18,4 +18,4 @@ bin/
 tools/gcc-kmc/
 
 # Armips build
-tools/armips/build/
+tools/armips-bin/
